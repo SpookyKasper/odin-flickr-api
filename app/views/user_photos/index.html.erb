@@ -6,10 +6,7 @@
   <%= text_field_tag :user_id %>
   <%= submit_tag 'Search User Pictures' %>
 <% end %>
-<% @user_photos.each do |photo| %>
-  <%= image_tag "https://live.staticflickr.com/#{photo.server}/#{photo.id}_#{photo.secret}.jpg" %>
-<% end %>
 
-<% @recent_photos.each do |photo| %>
+<% @user_photos.each do |photo| %>
   <%= image_tag "https://live.staticflickr.com/#{photo.server}/#{photo.id}_#{photo.secret}.jpg" %>
 <% end %>
