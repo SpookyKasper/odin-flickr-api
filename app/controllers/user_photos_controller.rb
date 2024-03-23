@@ -4,7 +4,9 @@ class UserPhotosController < ApplicationController
       Rails.application.credentials.dig(:flickr, :flickr_key),
       Rails.application.credentials.dig(:flickr, :flickr_secret)
     )
+    @recent_photos = @flickr.photos.getRecent
+    @user_id = params[:user_id] if params[:user_id]
 
-    @photos = @flickr.photos.getRecent
+    @user_photos = @flickr.people.getPhotos(user_id: @user_id) if @user_id
   end
 end
